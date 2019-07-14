@@ -1,5 +1,6 @@
 package com.ns.gwttoken.config;
 
+import com.ns.gwttoken.JwtAuthenticationFilter;
 import com.ns.gwttoken.service.InvalidLoginAttemptHandler;
 import com.ns.gwttoken.service.UserAuthDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -53,14 +55,14 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
                 .antMatchers("/authenticate/**")
                 .permitAll()
                 .anyRequest().authenticated();
-
-
-
-       // http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
+         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
 
     }
 
-
+    @Bean
+    public JwtAuthenticationFilter jwtAuthenticationFilter() {
+        return new JwtAuthenticationFilter();
+    }
 
 
 }
