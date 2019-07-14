@@ -1,6 +1,6 @@
 package com.ns.gwttoken.config;
 
-import com.ns.gwttoken.JwtAuthenticationFilter;
+import com.ns.gwttoken.filter.JwtAuthenticationFilter;
 import com.ns.gwttoken.service.InvalidLoginAttemptHandler;
 import com.ns.gwttoken.service.UserAuthDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
