@@ -1,4 +1,4 @@
-package com.ns.gwttoken;
+package com.ns.gwttoken.filter;
 
 import com.ns.gwttoken.model.UserPrincipal;
 import com.ns.gwttoken.service.JWTTokenProvider;
@@ -34,8 +34,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 logger.info("Token is Valid ");
                 String userNameFromToken = tokenProvider.getUserNameFromToken(jwt);
                 UserPrincipal userDetails = userDetailsService.loadUserByUsername(userNameFromToken);
+                System.out.println(userDetails.getAuthorities());
                 UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(authentication);
+                logger.info("After Filter!!");
 
             }
         } catch (Exception ex) {
