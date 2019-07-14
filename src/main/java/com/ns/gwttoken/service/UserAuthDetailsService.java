@@ -1,6 +1,7 @@
-package com.ns.gwttoken;
+package com.ns.gwttoken.service;
 
 import com.ns.gwttoken.entity.User;
+import com.ns.gwttoken.model.UserPrincipal;
 import com.ns.gwttoken.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

@@ -1,4 +1,4 @@
-package com.ns.gwttoken;
+package com.ns.gwttoken.model;
 
 import com.ns.gwttoken.entity.User;
 import org.springframework.security.core.GrantedAuthority;
