@@ -18,6 +18,9 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
     @Autowired
     private UserAuthDetailsService userAuthDetailsService;
 
+    @Autowired
+    private InvalidLoginAttemptHandler invalidLoginAttemptHandler;
+
 
     @Override
     public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
@@ -42,9 +45,13 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter{
 
         http
                 .cors().and().csrf().disable()
+                .exceptionHandling().authenticationEntryPoint(invalidLoginAttemptHandler)
+                .and()
                 .authorizeRequests()
-                .antMatchers("/")
-                .permitAll();
+                .antMatchers("/authenticate/**")
+                .permitAll()
+                .anyRequest().authenticated();
+
 
 
        // http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
