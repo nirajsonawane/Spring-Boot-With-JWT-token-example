@@ -2,7 +2,6 @@ package com.ns.gwttoken.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.ToString;
 
 @Data
 @AllArgsConstructor

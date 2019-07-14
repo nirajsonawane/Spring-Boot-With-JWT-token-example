@@ -18,11 +18,9 @@ public class UserAuthDetailsService implements UserDetailsService {
 
     @Override
     public UserPrincipal loadUserByUsername(String s) throws UsernameNotFoundException {
-        System.out.println(s);
         User user = userRepository
                 .findById(s)
                 .orElseThrow(() -> new UsernameNotFoundException("User name " + s + "Not Found in DB"));
-        System.out.println(user);
         return UserPrincipal.create(user);
 
     }

@@ -1,9 +1,9 @@
 package com.ns.gwttoken.resource;
 
-import com.ns.gwttoken.service.JWTTokenProvider;
+import com.ns.gwttoken.model.AuthenticateRequest;
 import com.ns.gwttoken.model.JwtAuthenticationResponse;
 import com.ns.gwttoken.model.UserPrincipal;
-import com.ns.gwttoken.model.AuthenticateRequest;
+import com.ns.gwttoken.service.JWTTokenProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
