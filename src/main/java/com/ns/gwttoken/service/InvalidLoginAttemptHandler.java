@@ -1,4 +1,4 @@
-package com.ns.gwttoken;
+package com.ns.gwttoken.service;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.AuthenticationException;
@@ -16,7 +16,6 @@ public class InvalidLoginAttemptHandler implements AuthenticationEntryPoint{
 
     @Override
     public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
-        System.out.println("******************");
        log.info("Invalid Login Attempt !!!!");
         httpServletResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED, e.getMessage());
 

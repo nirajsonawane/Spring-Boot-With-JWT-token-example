@@ -1,5 +1,7 @@
-package com.ns.gwttoken;
+package com.ns.gwttoken.config;
 
+import com.ns.gwttoken.service.InvalidLoginAttemptHandler;
+import com.ns.gwttoken.service.UserAuthDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
