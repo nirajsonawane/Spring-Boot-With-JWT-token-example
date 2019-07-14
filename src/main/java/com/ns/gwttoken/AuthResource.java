@@ -19,7 +19,6 @@ public class AuthResource {
 
     @PostMapping
     public void authenticateUser(@RequestBody AuthenticateRequest authenticateRequest) {
-
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticateRequest.getUserName(), authenticateRequest.getPassword()));
         System.out.println(authentication.isAuthenticated());
         System.out.println(authentication.getAuthorities());
