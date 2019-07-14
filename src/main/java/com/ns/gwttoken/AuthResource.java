@@ -19,20 +19,10 @@ public class AuthResource {
 
     @PostMapping
     public void authenticateUser(@RequestBody AuthenticateRequest authenticateRequest) {
-        System.out.println(authenticateRequest.getPassword());
 
-        try {
-            Authentication authentication = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(authenticateRequest.getUserName(), authenticateRequest.getPassword()
-                    )
-
-            );
-            System.out.println(authentication.isAuthenticated());
-            System.out.println(authentication.getAuthorities());
-        } catch (Exception exceptione) {
-            exceptione.printStackTrace();
-        }
-
+        Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticateRequest.getUserName(), authenticateRequest.getPassword()));
+        System.out.println(authentication.isAuthenticated());
+        System.out.println(authentication.getAuthorities());
 
     }
 
